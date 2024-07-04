@@ -3,8 +3,8 @@
 
 enum class InputActuatorEventType
 {
-    BUTTON_RISING_EDGE,
     BUTTON_FALLING_EDGE,
+    BUTTON_RISING_EDGE,
     ROTARY_ENCODER_LEFT,
     ROTARY_ENCODER_RIGHT
 };

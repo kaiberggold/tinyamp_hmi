@@ -10,8 +10,9 @@ int main()
     InputActuatorsImpl input_actuators(&input_events);
 
     // Simulate button events
+    input_actuators.simulateActuatorEvent(InputActuatorEventType::BUTTON_RISING_EDGE);
     input_actuators.simulateActuatorEvent(InputActuatorEventType::BUTTON_FALLING_EDGE);
     input_actuators.simulateActuatorEvent(InputActuatorEventType::BUTTON_RISING_EDGE);
-
+    input_actuators.simulateActuatorEvent(InputActuatorEventType::BUTTON_FALLING_EDGE);
     return 0;
 }
