@@ -1,0 +1,9 @@
+{
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
+    "files.associations": {
+        " *.lst": "\"avrasm\"",
+        "chrono": "cpp",
+        "variant": "cpp",
+        "ostream": "cpp"
+    }
+}
