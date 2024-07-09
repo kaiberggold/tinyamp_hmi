@@ -4,6 +4,7 @@
 #include <iostream>
 #include "input_events_if.h"
 
+
 class Hmi : public InputEventsIf
 {
 public:
