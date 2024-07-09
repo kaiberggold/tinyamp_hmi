@@ -5,5 +5,7 @@
         "chrono": "cpp",
         "variant": "cpp",
         "ostream": "cpp"
-    }
+        
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }

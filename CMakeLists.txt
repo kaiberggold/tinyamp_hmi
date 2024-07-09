@@ -18,6 +18,9 @@ set(SOURCES
     include/input_events_impl.h
     include/input_actuators_events_if.h
     include/input_actuators_impl.h
+    include/timer_service.h
+    include/timer_service_if.h
+    include/button_state.h
 )
 
 # Create the executable
