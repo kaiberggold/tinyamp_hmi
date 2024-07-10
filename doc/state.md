@@ -1,4 +1,4 @@
-```Mermaid
+```mermaid
 stateDiagram
 [*] --> Off
   Off --> OnTransient: if (raw==on)
