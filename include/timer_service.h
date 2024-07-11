@@ -28,15 +28,12 @@ public:
     void step() override
     {
 
-        for (int i = 0; i < 10; i++)
-        {
-            if (_events[i].time != 0)
-            {
-                _events[i].time--;
-                if (_events[i].time == 0)
-                {
-                    _events[i].callback(i);
-                }
+        std::for_each(arr.begin(), arr.end(), [&arr](int& element){
+        if (element.time > 0) {
+            element.time--;
+            const int index = std::distance(arr.begin(), &element);
+            if (element.time == 0) {
+                element.callback(index);
             }
         }
     }
