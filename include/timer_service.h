@@ -3,39 +3,60 @@
 
 #include <iostream>
 #include "timer_service_if.h"
+#include <array>
+
+struct TimerEvent
+{
+    CallbackFunc callback;
+    int time;
+};
 
 class TimerService : public TimerServiceIf
 {
 private:
-    CallbackFunc _callback;
-    int _time;
-    int _id = 0;
+    // CallbackFuns;
+    std::array<TimerEvent, 10> _events;
 
 public:
+    TimerService()
+    {
+        for (auto &event : _events)
+        {
+            event.time = 0;
+        }
+    }
     void step() override
     {
-        if (_time > 0)
+
+        for (int i = 0; i < 10; i++)
         {
-            _time--;
-            if (_time == 0)
+            if (_events[i].time != 0)
             {
-                _callback(_id);
+                _events[i].time--;
+                if (_events[i].time == 0)
+                {
+                    _events[i].callback(i);
+                }
             }
         }
     }
 
     int register_event(int time, CallbackFunc callback) override
     {
-        _id++;
-        std::cout << "New Timer Event" << _id << std::endl;
-        _time = time;
-        _callback = callback;
-        return _id;
+        int id = 0;
+        while (_events[id].time > 0)
+        {
+            id++;
+        }
+        _events[id].time = time;
+        _events[id].callback = callback;
+        return id;
     }
 
     void delete_event(int id) override
     {
         std::cout << "Deleted Event" << id << std::endl;
+        _events[id].time = 0;
     }
 };
 
