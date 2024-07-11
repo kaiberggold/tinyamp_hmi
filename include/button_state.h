@@ -105,7 +105,7 @@ public:
 
     void timer_service_call_back(int id)
     {
-        std::cout << "Callback: " << id << std::endl;
+        std::cout << "Callback: " << id << " executed" << std::endl;
         switch (_state)
         {
         case ButtonState::ON_TRANSIENT:
